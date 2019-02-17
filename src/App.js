@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 //need to use version ^5.0.3 because newer versions give errors with react-native
 import firebase from 'firebase';
 import Config from '../.config';
