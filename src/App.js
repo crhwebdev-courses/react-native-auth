@@ -3,12 +3,18 @@ import { View } from 'react-native';
 //need to use version ^5.0.3 because newer versions give errors with react-native
 import firebase from 'firebase';
 import Config from '../.config';
-import { Header, Button, CardSection, Card } from './components/common';
+import {
+  Header,
+  Button,
+  CardSection,
+  Card,
+  Spinner
+} from './components/common';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
   state = {
-    loggedIn: false
+    loggedIn: null
   };
 
   componentWillMount() {
@@ -33,17 +39,31 @@ class App extends Component {
   }
 
   renderContent() {
-    if (this.state.loggedIn) {
-      return (
-        <Card>
-          <CardSection>
-            <Button onPress={() => console.log('logging out!')}>Log Out</Button>
-          </CardSection>
-        </Card>
-      );
+    switch (this.state.loggedIn) {
+      case true:
+        return (
+          <Card>
+            <CardSection>
+              <Button onPress={() => console.log('logging out!')}>
+                Log Out
+              </Button>
+            </CardSection>
+          </Card>
+        );
+      case false:
+        return <LoginForm />;
+      default:
+        return (
+          <View
+            style={{
+              height: '80%',
+              width: '100%'
+            }}
+          >
+            <Spinner size="large" />
+          </View>
+        );
     }
-
-    return <LoginForm />;
   }
 
   render() {
