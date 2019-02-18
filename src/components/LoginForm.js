@@ -16,7 +16,7 @@ class LoginForm extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(this.onLoginSuccess.bind(this))
       .catch(() => {
-        //failed to sign in
+        //failed to sign in - so just try to create user
         firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
