@@ -44,9 +44,7 @@ class App extends Component {
         return (
           <Card>
             <CardSection>
-              <Button onPress={() => console.log('logging out!')}>
-                Log Out
-              </Button>
+              <Button onPress={() => firebase.auth().signOut()}>Log Out</Button>
             </CardSection>
           </Card>
         );
