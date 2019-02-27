@@ -1,5 +1,7 @@
 # OVERVIEW
 
+A React Native project that creates a simple login form. This is for the Udemy course: The Complete React Native and Redux Course
+
 # RUNNING
 
 This project uses Firebase for authentication. To use this app,
